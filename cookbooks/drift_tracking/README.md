@@ -8,11 +8,11 @@ Requirements
 Attributes
 ----------
 
+```ruby
 default['drift_tracking']['is_baseline'] = false
-
 default['drift_tracking']['timestamp'] = Time.new.strftime("%Y_%m_%d-%H:%M:%S")
-
 default['drift_tracking']['config'] = Mash.new
+```
 
 Usage
 -----
