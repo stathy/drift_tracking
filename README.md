@@ -1,9 +1,6 @@
 drift_tracking Cookbook
 =======================
-TODO: Enter the cookbook description here.
 
-e.g.
-This cookbook makes your favorite breakfast sandwhich.
 
 Requirements
 ------------
@@ -15,47 +12,61 @@ e.g.
 
 Attributes
 ----------
-TODO: List you cookbook attributes here.
-
-e.g.
-#### drift_tracking::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['drift_tracking']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+default['drift_tracking']['is_baseline'] = false
+default['drift_tracking']['timestamp'] = Time.new.strftime("%Y_%m_%d-%H:%M:%S")
+default['drift_tracking']['config'] = Mash.new
 
 Usage
 -----
-#### drift_tracking::default
-TODO: Write usage instructions for each cookbook.
 
-e.g.
-Just include `drift_tracking` in your node's `run_list`:
+#### drift_tracking::baseline
+
+\In the drift_tracking::baseline recipe assign the appropriate attributes to be tracked :
+
+```ruby
+node.set['drift_tracking']['config']['rpm'] = node['rpm']
+```
+
+Include `drift_tracking::baseline` on the node which will act as 'baseline' or 'standard' config :
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[drift_tracking]"
+    "recipe[drift_tracking::baseline]"
   ]
 }
 ```
 
+It will remove itself after running. This behavior can be changed by removing the resource
+ruby_block[remove_baseline]
+
+#### drift_tracking::detect_drift
+
+Just include `drift_tracking::baseline` on the node which will act as 'baseline' or 'standard' config :
+
+```json
+{
+  "name":"my_node",
+  "run_list": [
+    "recipe[drift_tracking::drift_tracking]"
+  ]
+}
+```
+
+No changes will need to be made. It will write out a new attribute called 'delta' which will contain
+a delta of the baseline and the current node config.
+
+```ruby
+node['drift_tracking']['delta']
+```
+
+#### bin/generate_drift_report.rb
+
+
+
 Contributing
 ------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
-
-e.g.
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write you change
@@ -65,4 +76,4 @@ e.g.
 
 License and Authors
 -------------------
-Authors: TODO: List authors
+Authors: Stathy Touloumis <stathy@opscode.com>
