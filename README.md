@@ -61,7 +61,6 @@ node['drift_tracking']['delta']
 Modify to accomodate environment in solr search and output format. Currently leverages `ruport`
 for generating presentation format.
 
-```html
 <p>dt-m1</p>
 <table>
         <tr>
@@ -241,8 +240,6 @@ for generating presentation format.
                 <td>32.el5_9</td>
         </tr>
 </table>
-```
-
 
 
 Contributing
