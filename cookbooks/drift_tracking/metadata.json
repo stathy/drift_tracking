@@ -1,0 +1,37 @@
+{
+  "providing": {
+  },
+  "maintainer": "Opscode, Inc.",
+  "replacing": {
+  },
+  "description": "Simple drift detection of node assets (attributes). Tags a baseline node and attributes for companing change against other nodes.",
+  "maintainer_email": "cookbooks@opscode.com",
+  "groupings": {
+  },
+  "attributes": {
+  },
+  "recommendations": {
+  },
+  "dependencies": {
+    "ohai": ">= 0.0.0"
+  },
+  "suggestions": {
+  },
+  "long_description": "",
+  "platforms": {
+    "debian": [],
+    "fedora": [],
+    "centos": [],
+    "ubuntu": [],
+    "redhat": []
+  },
+  "name": "drift_tracking",
+  "version": "0.10.0",
+  "conflicting": {
+  },
+  "license": "Apache 2.0",
+  "recipes": {
+    "drift_tracking::baseline": "Generates baseline data and assigns attributes for tracking.",
+    "drift_tracking::detect_drift": "Generates and identifies differential from baseline configuration."
+  }
+}
