@@ -27,7 +27,7 @@ Vagrant::Config.run do |config|
             :ip       => '192.168.65.206',
             :memory   => 256,
             :run_list => %w( recipe[ohai] recipe[drift_tracking::detect_drift] )
-        }
+        },
         :m2 => {
             :ip       => '192.168.65.207',
             :memory   => 256,
