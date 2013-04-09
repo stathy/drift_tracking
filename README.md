@@ -5,6 +5,19 @@ drift_tracking Cookbook
 Requirements
 ------------
 
+On workstation / report generation side
+```ruby
+gem install ruport
+gem install ruport-util
+```
+
+On node side, where drift_tracking::detect_drift is run
+```
+# Included in recipe
+chef_gem 'hashdiff'
+```
+
+
 Attributes
 ----------
 
