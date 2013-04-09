@@ -257,6 +257,31 @@ for generating presentation format.
         </tr>
 </table>
 
+#### interpreting the output
+
+With the exception of column 1, the results should be self-explanatory.
+The first column can be one of three possible values, each of which is
+described here:
+
+<table>
+  <tr>
+    <th>Character</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>-</td>
+    <td>Package needs to be removed from target, because it *isn't* part
+of the baseline.</td>
+  <tr>
+  <tr>
+    <td>+</td>
+    <td>Package needs to be added to the target, because it *is* part of the baseline.
+  </tr>
+  <tr>
+    <td>~</td>
+    <td>Package is the wrong version on the target, so
+*upgrade/downgrade* the package.</td>
+</table>
 
 Contributing
 ------------
