@@ -272,7 +272,7 @@ described here:
     <td>-</td>
     <td>Package needs to be removed from target, because it *isn't* part
 of the baseline.</td>
-  <tr>
+  </tr>
   <tr>
     <td>+</td>
     <td>Package needs to be added to the target, because it *is* part of the baseline.
@@ -281,6 +281,7 @@ of the baseline.</td>
     <td>~</td>
     <td>Package is the wrong version on the target, so
 *upgrade/downgrade* the package.</td>
+  </tr>
 </table>
 
 Contributing
